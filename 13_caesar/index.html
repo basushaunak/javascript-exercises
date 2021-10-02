@@ -1,4 +1,14 @@
-const caesar = function(strInput, shiftValue) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const caesar = function(strInput, shiftValue) {
     let strLength = strInput.length;
     let strOut = "";
     let asciiValue = 0;
@@ -20,7 +30,7 @@ const caesar = function(strInput, shiftValue) {
     }
     if (shiftValue < 0){
         for(let i = 0; i < strLength; i++){
-            asciiValue = negativeShift(strInput[i].charCodeAt(), shiftValue);
+            asciiValue = positiveShift(strInput[i].charCodeAt(), shiftValue);
             strOut = strOut + String.fromCharCode(asciiValue);
         }
         return strOut ;
@@ -53,25 +63,31 @@ function positiveShift(char,shift){
     }
     return charOut ;
  }
-function negativeShift(char, shift){    
+ function negativeShift(char, shift){    
     let tmpChar = 0;
     let charOut = "";
     if(char >= 48 && char <= 57){
         let tmpChar = char + shift ;
+        console.log("tmpChar before while loop: "+tmpChar)
         while(tmpChar < 48){
             tmpChar = 57 - (48-tmpChar) +1;
+            console.log("tmpChar inside while loop: "+tmpChar)
         }
         charOut = tmpChar;
     } else if(char >= 65 && char <= 90){
         let tmpChar = char + shift ;
+        console.log("tmpChar before while loop: "+tmpChar)
         while(tmpChar<65){
             tmpChar = 90 - (65 - tmpChar) + 1;
+            console.log("tmpChar inside while loop: "+tmpChar)
         }
         charOut = tmpChar;
     }else if(char >= 97 && char <= 122){
         let tmpChar = char + shift ;
+        console.log("tmpChar before while loop: " + tmpChar)
         while(tmpChar < 97){
             tmpChar = 122 - (97 - tmpChar) + 1;
+            console.log("tmpChar inside while loop: "+tmpChar)
         }
         charOut = tmpChar;
     } else{
@@ -80,5 +96,8 @@ function negativeShift(char, shift){
     return charOut;
 }
 
-// Do not edit below this line
-module.exports = caesar;
+
+
+     </script>
+</body>
+</html>
